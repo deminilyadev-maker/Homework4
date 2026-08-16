@@ -321,6 +321,28 @@ resource "yandex_vpc_network" "develop" {
 Для первой VM используется subnet в зоне `ru-central1-a`.
 
 Для второй VM создан отдельный subnet в зоне `ru-central1-b`.
+был доработан файл `variables.tf`
+
+```hcl
+variable "db_default_zone" {
+  type        = string
+  default     = "ru-central1-b"
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+}
+
+variable "db_default_cidr" {
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
+  description = "DB subnet CIDR"
+}
+
+variable "db_vpc_name" {
+  type        = string
+  default     = "db_develop"
+  description = "VPC network & subnet name"
+}
+
+```
 
 ```hcl
 resource "yandex_vpc_subnet" "develop_db" {
