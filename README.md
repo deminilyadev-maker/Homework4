@@ -444,7 +444,7 @@ locals.tf
 
 ```hcl
 locals {
-  vm_web_name = "${var.vm_web.name}-${var.vm_web.zone}"
+  vm_web_name = "${var.vm_web.name}-${var.vm_default_zone}"
   vm_db_name  = "${var.vm_db.name}-${var.vm_db.zone}"
 }
 ```
