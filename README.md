@@ -345,17 +345,10 @@ network_interface {
   nat       = var.vm_db.nat
 }
 ```
-
-Зона виртуальной машины и зона subnet совпадают:
-
-```text
-VM DB       → ru-central1-b
-DB subnet   → ru-central1-b
-```
-
 ### Скриншот
 
 ![Две виртуальные машины](Task3_2VM's.png)
+
 
 ---
 
