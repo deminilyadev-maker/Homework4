@@ -192,7 +192,6 @@ variable "vm_web_platform" {
   type = object({
     name          = string
     platform_id   = string
-    zone          = string
     cores         = number
     memory        = number
     core_fraction = number
@@ -203,7 +202,6 @@ variable "vm_web_platform" {
   default = {
     name          = "netology-develop-platform-web"
     platform_id   = "standard-v3"
-    zone          = "ru-central1-a"
     cores         = 2
     memory        = 1
     core_fraction = 20
