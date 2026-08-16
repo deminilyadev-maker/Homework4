@@ -85,6 +85,10 @@ resources {
   core_fraction = 20
 }
 ```
+Так же `platform_id` было заменено на `standart-v3` по примерам документации Терраформ ресурса Яндекс
+```hcl
+platform_id = "standart-v3"
+```
 
 ---
 
