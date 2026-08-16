@@ -499,67 +499,8 @@ resource "yandex_compute_instance" "db" {
 
 ## Шаг 1. Объединение параметров VM в одну map-переменную
 
-Для параметров вычислительных ресурсов виртуальных машин была создана единая map-переменная.
+Неожиданно для себя обнаружил что улучшение (собрал все в массивы) сделанное для удобства в начальных заданиях, является частью этого. Рискнул оставить как есть :)
 
-Вместо отдельных параметров:
-
-```text
-cores
-memory
-core_fraction
-```
-
-используется единая структура.
-
-Пример:
-
-```hcl
-variable "vm_resources" {
-  type = map(object({
-    cores         = number
-    memory        = number
-    core_fraction = number
-  }))
-
-  default = {
-    web = {
-      cores         = 2
-      memory        = 1
-      core_fraction = 20
-    }
-
-    db = {
-      cores         = 2
-      memory        = 2
-      core_fraction = 20
-    }
-  }
-}
-```
-
-В ресурсах VM значения используются следующим образом.
-
-Для Web VM:
-
-```hcl
-resources {
-  cores         = var.vm_resources["web"].cores
-  memory        = var.vm_resources["web"].memory
-  core_fraction = var.vm_resources["web"].core_fraction
-}
-```
-
-Для DB VM:
-
-```hcl
-resources {
-  cores         = var.vm_resources["db"].cores
-  memory        = var.vm_resources["db"].memory
-  core_fraction = var.vm_resources["db"].core_fraction
-}
-```
-
----
 
 ## Шаг 2. Общая переменная `map(object)` для metadata
 
@@ -575,7 +516,7 @@ variable "metadata" {
   default = {
     common = {
       serial-port-enable = 1
-      ssh-keys            = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... terraform-yandex"
+      ssh-keys            = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... terraform-yandex"
     }
   }
 }
@@ -623,4 +564,3 @@ terraform plan
 Plan: 0 to add, 0 to change, 0 to destroy.
 ```
 
-Таким образом, параметры инфраструктуры были вынесены в переменные и структурированы без изменения итоговой конфигурации виртуальных машин.
