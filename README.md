@@ -217,9 +217,9 @@ variable "vm_web_platform" {
 
 ```hcl
 resources {
-  cores         = var.vm_web.cores
-  memory        = var.vm_web.memory
-  core_fraction = var.vm_web.core_fraction
+  cores         = var.vm_web_platform.cores
+  memory        = var.vm_web_platformb.memory
+  core_fraction = var.vm_web_platform.core_fraction
 }
 ```
 
