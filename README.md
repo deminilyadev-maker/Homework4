@@ -165,25 +165,14 @@ core_fraction = 20
 Для переменных первой виртуальной машины использован префикс:
 
 ```text
-vm_web_
+vm_web_platform
 ```
 
-Например:
-
-```text
-vm_web_name
-vm_web_platform_id
-vm_web_cores
-vm_web_memory
-vm_web_core_fraction
-vm_web_preemptible
-vm_web_nat
-```
 
 Для образа Ubuntu была создана отдельная переменная:
 
 ```hcl
-variable "image_family" {
+variable "vm_web_image_family" {
   type        = string
   default     = "ubuntu-2004-lts"
   description = "Family image title"
@@ -199,7 +188,7 @@ variable "image_family" {
 Пример:
 
 ```hcl
-variable "vm_web" {
+variable "vm_web_platform" {
   type = object({
     name          = string
     platform_id   = string
