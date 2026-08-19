@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Студент** | Демин Илья Викторович |
-| **GitHub репозиторий** | https://github.com/deminilyadev-maker/Homework4 |
+| **GitHub репозиторий** |https://github.com/deminilyadev-maker/Homework-4_Terraform.git |
 
 ---
 
